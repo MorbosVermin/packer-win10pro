@@ -1,0 +1,59 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_url": "{{user `iso_url`}}",
+      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "headless": false,
+      "boot_wait": "2m",
+      "communicator": "winrm",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "8h",
+      "shutdown_command": "a:/PackerShutdown.bat",
+      "guest_additions_mode": "attach",
+      "guest_os_type": "Windows10_64",
+      "disk_size": 61440,
+      "floppy_files": [
+        "Autounattend.xml",
+        "postunattend.xml",
+        "./scripts/oracle.cer",
+        "./scripts/install-guest-additions.ps1",
+        "./scripts/PackerShutdown.bat",
+        "./scripts/enable-winrm.ps1",
+        "./scripts/setup.bat",
+        "./scripts/unattend.bat",
+        "./scripts/install-puppet.bat",
+        "./scripts/install-choco.ps1"
+      ],
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "2048"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_10_{{.Provider}}.box",
+      "vagrantfile_template": "vagrantfile-windows_10.template"
+    }
+  ],
+  "variables": {
+    "iso_url": "file:///C:/Users/Mike/Documents/Installation%20Images/Win10_English_x64.iso",
+    "iso_checksum_type": "sha1",
+    "iso_checksum": "60cce9e9c6557335b4f7b18d02cfe2b438a8b3e2"
+  }
+}
