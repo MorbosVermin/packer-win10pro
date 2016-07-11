@@ -21,7 +21,7 @@
                             <PartitionID>1</PartitionID>
                         </ModifyPartition>
                     </ModifyPartitions>
-                    <DiskID>1</DiskID>
+                    <DiskID>0</DiskID>
                 </Disk>
             </DiskConfiguration>
             <ImageInstall>
@@ -35,7 +35,7 @@
                     </InstallFrom>
                     <InstallTo>
                         <PartitionID>1</PartitionID>
-                        <DiskID>1</DiskID>
+                        <DiskID>0</DiskID>
                     </InstallTo>
                 </OSImage>
             </ImageInstall>
@@ -54,8 +54,27 @@
                     <PlainText>false</PlainText>
                 </Password>
                 <Username>vagrant</Username>
+                <Enabled>true</Enabled>
             </AutoLogon>
+            <DesktopOptimization>
+                <ShowWindowsStoreAppsOnTaskbar>false</ShowWindowsStoreAppsOnTaskbar>
+            </DesktopOptimization>
+            <OEMInformation>
+                <Manufacturer>WaitWha.com</Manufacturer>
+                <SupportAppURL>http://waitwha.com</SupportAppURL>
+                <SupportURL>http://waitwha.com</SupportURL>
+            </OEMInformation>
+            <WindowsFeatures>
+                <ShowMediaCenter>false</ShowMediaCenter>
+                <ShowInternetExplorer>false</ShowInternetExplorer>
+                <ShowWindowsMail>false</ShowWindowsMail>
+                <ShowWindowsMediaPlayer>false</ShowWindowsMediaPlayer>
+            </WindowsFeatures>
             <TimeZone>UTC</TimeZone>
+            <RegisteredOrganization>WaitWha.com</RegisteredOrganization>
+            <RegisteredOwner>Mike Duncan</RegisteredOwner>
+            <BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled>
+            <CopyProfile>true</CopyProfile>
         </component>
     </settings>
     <settings pass="oobeSystem">
@@ -65,14 +84,24 @@
                     <Value>dgBhAGcAcgBhAG4AdABQAGEAcwBzAHcAbwByAGQA</Value>
                     <PlainText>false</PlainText>
                 </Password>
+                <Enabled>true</Enabled>
                 <Username>vagrant</Username>
             </AutoLogon>
+            <DesktopOptimization>
+                <ShowWindowsStoreAppsOnTaskbar>false</ShowWindowsStoreAppsOnTaskbar>
+            </DesktopOptimization>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c a:\setup.bat</CommandLine>
                     <Order>1</Order>
+                    <RequiresUserInput>false</RequiresUserInput>
                 </SynchronousCommand>
             </FirstLogonCommands>
+            <OEMInformation>
+                <Manufacturer>WaitWha.com</Manufacturer>
+                <SupportAppURL>http://waiitwha.com</SupportAppURL>
+                <SupportURL>http://waitwha.com</SupportURL>
+            </OEMInformation>
             <UserAccounts>
                 <AdministratorPassword>
                     <Value>dgBhAGcAcgBhAG4AdABBAGQAbQBpAG4AaQBzAHQAcgBhAHQAbwByAFAAYQBzAHMAdwBvAHIAZAA=</Value>
@@ -80,13 +109,21 @@
                 </AdministratorPassword>
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
-                        <Name>vagrant</Name>
+                        <Password>
+                            <Value>dgBhAGcAcgBhAG4AdABQAGEAcwBzAHcAbwByAGQA</Value>
+                            <PlainText>false</PlainText>
+                        </Password>
+                        <Description>Vagrant User</Description>
                         <DisplayName>Vagrant</DisplayName>
                         <Group>Administrators</Group>
+                        <Name>vagrant</Name>
                     </LocalAccount>
                 </LocalAccounts>
             </UserAccounts>
             <TimeZone>UTC</TimeZone>
+            <BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled>
+            <RegisteredOrganization>WaitWha.com</RegisteredOrganization>
+            <RegisteredOwner>Mike Duncan</RegisteredOwner>
         </component>
     </settings>
     <cpi:offlineImage cpi:source="wim:c:/users/miked/desktop/install.wim#Windows 10 Pro" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
